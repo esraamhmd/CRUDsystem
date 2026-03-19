@@ -1,3 +1,5 @@
+const base = import.meta.env.BASE_URL
+
 const IMG    = { width:'16px', height:'16px', objectFit:'contain', filter:'brightness(0) invert(1)' }
 const IMG_LG = { width:'20px', height:'20px', objectFit:'contain', filter:'brightness(0) invert(1)' }
 
@@ -14,7 +16,7 @@ export default function ProductTable({ dark, cardBg, data, allCount, onEdit, onD
             onClick={onDeleteAll}
             className="btn-sh relative overflow-hidden w-full h-11.5 rounded-full text-sm font-bold text-white flex items-center justify-center gap-3 cursor-pointer bg-br-grad shadow-br-btn transition-all duration-250 hover:bg-br-gradh hover:shadow-brh hover:-translate-y-0.5 hover:scale-102 active:scale-95"
           >
-            <img src="/del.png" style={IMG_LG} alt="" />
+            <img src={`${base}del.png`} style={IMG_LG} alt="" />
             Delete All ({allCount})
           </button>
         </div>
@@ -66,7 +68,7 @@ export default function ProductTable({ dark, cardBg, data, allCount, onEdit, onD
                         onClick={() => onEdit(i)}
                         className="bi-btn btn-sh relative overflow-hidden inline-flex items-center justify-center gap-1.25 h-8.5 px-3 rounded-2xl text-xs font-bold text-white border-none cursor-pointer bg-be-grad shadow-be transition-all duration-250 hover:bg-be-gradh hover:shadow-beh hover:-translate-y-0.5 hover:scale-104 active:scale-92 whitespace-nowrap"
                       >
-                        <img src="/edit.png" style={IMG} alt="edit" /> Edit
+                        <img src={`${base}edit.png`} style={IMG} alt="edit" /> Edit
                       </button>
                     </td>
                     <td className="p-1.5">
@@ -74,7 +76,7 @@ export default function ProductTable({ dark, cardBg, data, allCount, onEdit, onD
                         onClick={() => onDelete(i)}
                         className="bi-btn btn-sh relative overflow-hidden inline-flex items-center justify-center gap-1.25 h-8.5 px-3 rounded-2xl text-xs font-bold text-white border-none cursor-pointer bg-bd-grad shadow-bd transition-all duration-250 hover:bg-bd-gradh hover:shadow-bdh hover:-translate-y-0.5 hover:scale-104 active:scale-92 whitespace-nowrap"
                       >
-                        <img src="/del.png" style={IMG} alt="del" /> Del
+                        <img src={`${base}del.png`} style={IMG} alt="del" /> Del
                       </button>
                     </td>
                   </tr>
