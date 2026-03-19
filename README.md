@@ -30,7 +30,8 @@ https://github.com/user-attachments/assets/a7b12273-8f17-4ebe-937d-1722d55e74be
 
 This project was built entirely from scratch with no UI component libraries. 
 
-
+## 🔗 Live Demo
+https://esraamhmd.github.io/CRUDsystem/
 ## ✨ Features
 
 ### ➕ Create Product
@@ -90,8 +91,6 @@ All product data is persisted using the browser's built-in `localStorage`. No ba
 A custom local font loaded from `public/fonts/` using `@font-face`. All 8 weights registered and applied globally via Tailwind's `--font-sans` theme token.
 
 ---
-
-## 🔗 Live Demo
 
 
 
