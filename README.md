@@ -10,7 +10,7 @@
 
 <br/><br/>
 
-### A full-featured, responsive product management system built from scratch with React, Vite, and Tailwind CSS .
+### A full-featured, responsive product management system built from scratch with React, and Tailwind CSS .
 <br/>
 
 <br/>
@@ -30,9 +30,6 @@ https://github.com/user-attachments/assets/a7b12273-8f17-4ebe-937d-1722d55e74be
 
 This project was built entirely from scratch with no UI component libraries. 
 
-## 🎬 Demo Video
-
----
 
 ## ✨ Features
 
