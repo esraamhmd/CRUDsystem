@@ -35,7 +35,7 @@ export default function TopBar({ dark, toggleMode }) {
       <div className="w-36 flex justify-end">
         <button
           onClick={toggleMode}
-          className="btn-sh relative overflow-hidden inline-flex items-center gap-2 px-4 h-10 rounded-full text-xl font-bold text-white border cursor-pointer transition-all duration-300 bg-bm-grad shadow-btn hover:bg-bm-gradh hover:-translate-y-0.5 hover:scale-105 active:scale-95"
+          className="btn-sh relative overflow-hidden inline-flex items-center justify-center w-10 h-10 rounded-full text-white border cursor-pointer transition-all duration-300 bg-bm-grad shadow-btn hover:bg-bm-gradh hover:-translate-y-0.5 hover:scale-105 active:scale-95"
           style={{ borderColor: '#2e7a9e' }}
         >
           <img
@@ -43,7 +43,6 @@ export default function TopBar({ dark, toggleMode }) {
             alt="mode"
             style={{ width:'22px', height:'22px', objectFit:'contain', filter:'brightness(0) invert(1)' }}
           />
-          <span>{dark ? 'Light' : 'Dark'}</span>
         </button>
       </div>
     </div>
