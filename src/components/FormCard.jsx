@@ -8,20 +8,19 @@ function buildInitial(editData) {
   return { ...editData, count: editData.count || '1' }
 }
 
-
 function PriceInput({ placeholder, value, onChange, dark, inpCls }) {
   return (
     <div className="relative flex items-center">
       <span
         className="absolute left-3 font-bold pointer-events-none select-none"
-        style={{ color: dark ? '#5ba3bf' : '#1D546D', fontSize: '1rem' }}
+        style={{ color: dark ? '#5ba3bf' : '#1D546D', fontSize: '1.1rem' }}
       >
         $
       </span>
       <input
         type="number"
         className={inpCls}
-        style={{ paddingLeft: '1.6rem' }}
+        style={{ paddingLeft: '1.7rem' }}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
@@ -58,9 +57,13 @@ function InnerForm({ dark, cardBg, editIdx, initialData, onAdd, onUpdate, onCanc
       className="btn-sh relative overflow-hidden rounded-2xl border p-6 mb-5 animate-fu-1 transition-[background,border-color,box-shadow] duration-400 shadow-card hover:shadow-cardh"
       style={{ background: cardBg, borderColor: '#1D546D' }}
     >
+      {/* Section label — white in dark mode */}
       <div
-        className="flex items-center gap-3 text-xs font-extrabold tracking-widest uppercase mb-4"
-        style={{ color: dark ? '#1D546D' : '#0d3a50' }}
+        className="flex items-center gap-3 font-extrabold tracking-widest uppercase mb-4"
+        style={{
+          fontSize: 'clamp(1rem,2vw,1.2rem)',
+          color: dark ? '#ffffff' : '#0d3a50'
+        }}
       >
         <Lottie src="/plus.lottie" className="lottie-icon w-14 h-14 shrink-0" />
         Create Product
@@ -79,7 +82,6 @@ function InnerForm({ dark, cardBg, editIdx, initialData, onAdd, onUpdate, onCanc
           ].map(({ id, label }) => (
             <PriceInput
               key={id}
-              id={id}
               placeholder={label}
               value={form[id]}
               onChange={e => set(id, e.target.value)}
@@ -88,8 +90,9 @@ function InnerForm({ dark, cardBg, editIdx, initialData, onAdd, onUpdate, onCanc
             />
           ))}
           <small
-            className="px-4 py-2 rounded-xl text-xs font-extrabold min-w-24 text-center whitespace-nowrap text-white transition-all duration-400"
+            className="px-4 py-2 rounded-xl font-extrabold min-w-24 text-center whitespace-nowrap text-white transition-all duration-400"
             style={{
+              fontSize: '1rem',
               background: total !== null ? '#1a7a4a' : '#c0392b',
               boxShadow:  total !== null ? '0 4px 22px rgba(26,122,74,.5)' : '0 4px 22px rgba(192,57,43,.55)'
             }}
@@ -110,7 +113,8 @@ function InnerForm({ dark, cardBg, editIdx, initialData, onAdd, onUpdate, onCanc
         <div className="flex gap-3">
           <button
             onClick={handleSubmit}
-            className="btn-sh relative overflow-hidden flex-1 h-13 rounded-full font-bold text-sm text-white flex items-center justify-center gap-2 cursor-pointer bg-bp-grad shadow-bp transition-all duration-250 hover:bg-bp-gradh hover:shadow-bph hover:-translate-y-0.5 hover:scale-102 active:scale-95"
+            className="btn-sh relative overflow-hidden flex-1 h-14 rounded-full font-bold text-white flex items-center justify-center gap-2 cursor-pointer bg-bp-grad shadow-bp transition-all duration-250 hover:bg-bp-gradh hover:shadow-bph hover:-translate-y-0.5 hover:scale-102 active:scale-95"
+            style={{ fontSize: '1.1rem' }}
           >
             <Lottie src="/Create!.lottie" className="lottie-btn w-10 h-10 shrink-0 pointer-events-none" />
             <span>{editIdx !== null ? 'Update Product' : 'Create Product'}</span>
@@ -118,7 +122,8 @@ function InnerForm({ dark, cardBg, editIdx, initialData, onAdd, onUpdate, onCanc
           {editIdx !== null && (
             <button
               onClick={onCancelEdit}
-              className="btn-sh relative overflow-hidden px-6 h-13 rounded-full font-bold text-sm text-white flex items-center justify-center cursor-pointer bg-br-grad shadow-br-btn transition-all duration-250 hover:bg-br-gradh hover:shadow-brh hover:-translate-y-0.5 active:scale-95"
+              className="btn-sh relative overflow-hidden px-6 h-14 rounded-full font-bold text-white flex items-center justify-center cursor-pointer bg-br-grad shadow-br-btn transition-all duration-250 hover:bg-br-gradh hover:shadow-brh hover:-translate-y-0.5 active:scale-95"
+              style={{ fontSize: '1.1rem' }}
             >
               Cancel
             </button>

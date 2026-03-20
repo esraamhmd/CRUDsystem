@@ -7,6 +7,7 @@ export default function ProductTable({ dark, cardBg, data, allCount, onEdit, onD
   const rowBdr = dark ? '#1D546D' : '#b8d8e3'
   const rowTx  = dark ? '#d4edf5' : '#0d2a3f'
   const thBg   = dark ? 'linear-gradient(90deg,#030f15,#061E29,#030f15)' : 'linear-gradient(90deg,#0d3a50,#1D546D,#0d3a50)'
+  const thColor = dark ? '#ffffff' : '#5ba3bf'
 
   return (
     <>
@@ -31,14 +32,14 @@ export default function ProductTable({ dark, cardBg, data, allCount, onEdit, onD
           style={{ borderColor: '#256180', boxShadow: '0 12px 50px rgba(0,0,0,.7),0 4px 16px rgba(29,84,109,.35)' }}
         >
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse text-xs">
+            <table className="w-full border-collapse" style={{ fontSize:"1rem" }}>
               <thead>
                 <tr
                   className="uppercase tracking-widest text-xs font-extrabold"
-                  style={{ background: thBg, color: '#5ba3bf' }}
+                  style={{ background: thBg, color: thColor }}
                 >
                   {['#','Title','Price','Taxes','Ads','Discount','Total','Category','Update','Delete'].map(h => (
-                    <th key={h} className="p-3 text-center border-b-2" style={{ borderColor: '#256180' }}>{h}</th>
+                    <th key={h} className="p-4 text-center border-b-2" style={{ borderColor: '#256180' }}>{h}</th>
                   ))}
                 </tr>
               </thead>
@@ -55,26 +56,26 @@ export default function ProductTable({ dark, cardBg, data, allCount, onEdit, onD
                     className="trow transition-[background,transform] duration-200"
                     style={{ borderBottom: `1px solid ${rowBdr}`, color: rowTx }}
                   >
-                    <td className="p-3 text-center">{i + 1}</td>
-                    <td className="p-3 text-left max-w-37.5 overflow-hidden text-ellipsis whitespace-nowrap">{d.title}</td>
-                    <td className="p-3 text-center">${d.price}</td>
-                    <td className="p-3 text-center">${d.taxes}</td>
-                    <td className="p-3 text-center">${d.ads}</td>
-                    <td className="p-3 text-center">${d.discount}</td>
-                    <td className="p-3 text-center font-extrabold" style={{ color: '#5ba3bf' }}>${d.total}</td>
-                    <td className="p-3 text-center">{d.category}</td>
-                    <td className="p-1.5">
+                    <td className="p-4 text-center">{i + 1}</td>
+                    <td className="p-4 text-left max-w-37.5 overflow-hidden text-ellipsis whitespace-nowrap">{d.title}</td>
+                    <td className="p-4 text-center">${d.price}</td>
+                    <td className="p-4 text-center">${d.taxes}</td>
+                    <td className="p-4 text-center">${d.ads}</td>
+                    <td className="p-4 text-center">${d.discount}</td>
+                    <td className="p-4 text-center font-extrabold" style={{ color: '#5ba3bf' }}>${d.total}</td>
+                    <td className="p-4 text-center">{d.category}</td>
+                    <td className="p-2">
                       <button
                         onClick={() => onEdit(i)}
-                        className="bi-btn btn-sh relative overflow-hidden inline-flex items-center justify-center gap-1.25 h-8.5 px-3 rounded-2xl text-xs font-bold text-white border-none cursor-pointer bg-be-grad shadow-be transition-all duration-250 hover:bg-be-gradh hover:shadow-beh hover:-translate-y-0.5 hover:scale-104 active:scale-92 whitespace-nowrap"
+                        className="bi-btn btn-sh relative overflow-hidden inline-flex items-center justify-center gap-1.25 h-10 px-4 rounded-2xl text-sm font-bold text-white border-none cursor-pointer bg-be-grad shadow-be transition-all duration-250 hover:bg-be-gradh hover:shadow-beh hover:-translate-y-0.5 hover:scale-104 active:scale-92 whitespace-nowrap"
                       >
                         <img src={`${base}edit.png`} style={IMG} alt="edit" /> Edit
                       </button>
                     </td>
-                    <td className="p-1.5">
+                    <td className="p-2">
                       <button
                         onClick={() => onDelete(i)}
-                        className="bi-btn btn-sh relative overflow-hidden inline-flex items-center justify-center gap-1.25 h-8.5 px-3 rounded-2xl text-xs font-bold text-white border-none cursor-pointer bg-bd-grad shadow-bd transition-all duration-250 hover:bg-bd-gradh hover:shadow-bdh hover:-translate-y-0.5 hover:scale-104 active:scale-92 whitespace-nowrap"
+                        className="bi-btn btn-sh relative overflow-hidden inline-flex items-center justify-center gap-1.25 h-10 px-4 rounded-2xl text-sm font-bold text-white border-none cursor-pointer bg-bd-grad shadow-bd transition-all duration-250 hover:bg-bd-gradh hover:shadow-bdh hover:-translate-y-0.5 hover:scale-104 active:scale-92 whitespace-nowrap"
                       >
                         <img src={`${base}del.png`} style={IMG} alt="del" /> Del
                       </button>
