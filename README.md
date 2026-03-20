@@ -31,7 +31,7 @@ https://github.com/user-attachments/assets/a7b12273-8f17-4ebe-937d-1722d55e74be
 This project was built entirely from scratch with no UI component libraries. 
 
 ## 🔗 Live Demo
-https://esraamhmd.github.io/CRUDsystem/
+[https://esraamhmd.github.io/CRUDsystem/](https://cru-dsystem-rxb4.vercel.app/)
 ## ✨ Features
 
 ### ➕ Create Product
