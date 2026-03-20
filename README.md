@@ -99,7 +99,7 @@ A custom local font loaded from `public/fonts/` using `@font-face`. All 8 weight
 
 ## 📄 License
 
-MIT License — free to use for learning.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
 
