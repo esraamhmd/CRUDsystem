@@ -6,7 +6,7 @@ export default function SearchCard({ dark, cardBg, searchVal, searchMode, onSear
       className="btn-sh relative overflow-hidden rounded-2xl border p-5 mb-5 animate-fu-2 transition-[background,border-color,box-shadow] duration-400 shadow-card hover:shadow-cardh"
       style={{ background: cardBg, borderColor: '#1D546D' }}
     >
-      {/* Section label — white in dark mode */}
+ 
       <div
         className="flex items-center gap-3 font-extrabold tracking-widest uppercase mb-4"
         style={{

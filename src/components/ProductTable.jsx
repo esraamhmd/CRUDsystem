@@ -47,7 +47,7 @@ export default function ProductTable({ dark, cardBg, data, allCount, onEdit, onD
                 {data.length === 0 ? (
                   <tr>
                     <td colSpan={10} className="p-6 text-center" style={{ color: '#5ba3bf' }}>
-                      No products yet — create one above.
+                      No products yet - create one above.
                     </td>
                   </tr>
                 ) : data.map((d, i) => (
