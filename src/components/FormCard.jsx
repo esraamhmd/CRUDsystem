@@ -57,13 +57,9 @@ function InnerForm({ dark, cardBg, editIdx, initialData, onAdd, onUpdate, onCanc
       className="btn-sh relative overflow-hidden rounded-2xl border p-6 mb-5 animate-fu-1 transition-[background,border-color,box-shadow] duration-400 shadow-card hover:shadow-cardh"
       style={{ background: cardBg, borderColor: '#1D546D' }}
     >
-      {/* Section label — white in dark mode */}
       <div
         className="flex items-center gap-3 font-extrabold tracking-widest uppercase mb-4"
-        style={{
-          fontSize: 'clamp(1rem,2vw,1.2rem)',
-          color: dark ? '#ffffff' : '#0d3a50'
-        }}
+        style={{ fontSize: 'clamp(1rem,2vw,1.2rem)', color: dark ? '#ffffff' : '#0d3a50' }}
       >
         <Lottie src="/plus.lottie" className="lottie-icon w-14 h-14 shrink-0" />
         Create Product
@@ -73,32 +69,35 @@ function InnerForm({ dark, cardBg, editIdx, initialData, onAdd, onUpdate, onCanc
         <input className={inp} placeholder="Product Title"
                value={form.title} onChange={e => set('title', e.target.value)} />
 
-        <div className="grid gap-2 items-center" style={{ gridTemplateColumns: 'repeat(4,1fr) auto' }}>
-          {[
-            { id:'price',    label:'Price'    },
-            { id:'taxes',    label:'Taxes'    },
-            { id:'ads',      label:'Ads'      },
-            { id:'discount', label:'Discount' },
-          ].map(({ id, label }) => (
-            <PriceInput
-              key={id}
-              placeholder={label}
-              value={form[id]}
-              onChange={e => set(id, e.target.value)}
-              dark={dark}
-              inpCls={inp}
-            />
-          ))}
-          <small
-            className="px-4 py-2 rounded-xl font-extrabold min-w-24 text-center whitespace-nowrap text-white transition-all duration-400"
-            style={{
-              fontSize: '1rem',
-              background: total !== null ? '#1a7a4a' : '#c0392b',
-              boxShadow:  total !== null ? '0 4px 22px rgba(26,122,74,.5)' : '0 4px 22px rgba(192,57,43,.55)'
-            }}
-          >
-            {total !== null ? `$ ${total}` : 'Total: 0'}
-          </small>
+        {/* price row — scroll horizontally on mobile, normal on desktop */}
+        <div className="overflow-x-auto">
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(4,minmax(120px,1fr)) auto', gap:'8px', minWidth:'500px' }}>
+            {[
+              { id:'price',    label:'Price'    },
+              { id:'taxes',    label:'Taxes'    },
+              { id:'ads',      label:'Ads'      },
+              { id:'discount', label:'Discount' },
+            ].map(({ id, label }) => (
+              <PriceInput
+                key={id}
+                placeholder={label}
+                value={form[id]}
+                onChange={e => set(id, e.target.value)}
+                dark={dark}
+                inpCls={inp}
+              />
+            ))}
+            <small
+              className="px-4 py-2 rounded-xl font-extrabold min-w-24 text-center whitespace-nowrap text-white transition-all duration-400"
+              style={{
+                fontSize: '1rem',
+                background: total !== null ? '#1a7a4a' : '#c0392b',
+                boxShadow:  total !== null ? '0 4px 22px rgba(26,122,74,.5)' : '0 4px 22px rgba(192,57,43,.55)'
+              }}
+            >
+              {total !== null ? `$ ${total}` : 'Total: 0'}
+            </small>
+          </div>
         </div>
 
         <div className="grid gap-3" style={{ gridTemplateColumns: editIdx !== null ? '1fr' : '1fr 2fr' }}>
