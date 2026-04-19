@@ -1,8 +1,3 @@
-const base = import.meta.env.BASE_URL
-
-const IMG    = { width:'16px', height:'16px', objectFit:'contain', filter:'brightness(0) invert(1)' }
-const IMG_LG = { width:'20px', height:'20px', objectFit:'contain', filter:'brightness(0) invert(1)' }
-
 export default function ProductTable({ dark, cardBg, data, allCount, onEdit, onDelete, onDeleteAll }) {
   const rowBdr = dark ? '#1D546D' : '#b8d8e3'
   const rowTx  = dark ? '#d4edf5' : '#0d2a3f'
@@ -17,7 +12,7 @@ export default function ProductTable({ dark, cardBg, data, allCount, onEdit, onD
             onClick={onDeleteAll}
             className="btn-sh relative overflow-hidden w-full h-11.5 rounded-full text-sm font-bold text-white flex items-center justify-center gap-3 cursor-pointer bg-br-grad shadow-br-btn transition-all duration-250 hover:bg-br-gradh hover:shadow-brh hover:-translate-y-0.5 hover:scale-102 active:scale-95"
           >
-            <img src={`${base}del.png`} style={IMG_LG} alt="" />
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
             Delete All ({allCount})
           </button>
         </div>
@@ -39,7 +34,7 @@ export default function ProductTable({ dark, cardBg, data, allCount, onEdit, onD
                   style={{ background: thBg, color: thColor }}
                 >
                   {['#','Title','Price','Taxes','Ads','Discount','Total','Category','Update','Delete'].map(h => (
-                    <th key={h} className="p-4 text-center border-b-2" style={{ borderColor: '#256180' }}>{h}</th>
+                    <th key={h} className="p-2 sm:p-4 text-center border-b-2" style={{ borderColor: '#256180' }}>{h}</th>
                   ))}
                 </tr>
               </thead>
@@ -47,7 +42,7 @@ export default function ProductTable({ dark, cardBg, data, allCount, onEdit, onD
                 {data.length === 0 ? (
                   <tr>
                     <td colSpan={10} className="p-6 text-center" style={{ color: '#5ba3bf' }}>
-                      No products yet - create one above.
+                      No products yet — create one above.
                     </td>
                   </tr>
                 ) : data.map((d, i) => (
@@ -56,28 +51,28 @@ export default function ProductTable({ dark, cardBg, data, allCount, onEdit, onD
                     className="trow transition-[background,transform] duration-200"
                     style={{ borderBottom: `1px solid ${rowBdr}`, color: rowTx }}
                   >
-                    <td className="p-4 text-center">{i + 1}</td>
-                    <td className="p-4 text-left max-w-37.5 overflow-hidden text-ellipsis whitespace-nowrap">{d.title}</td>
-                    <td className="p-4 text-center">${d.price}</td>
-                    <td className="p-4 text-center">${d.taxes}</td>
-                    <td className="p-4 text-center">${d.ads}</td>
-                    <td className="p-4 text-center">${d.discount}</td>
-                    <td className="p-4 text-center font-extrabold" style={{ color: '#5ba3bf' }}>${d.total}</td>
-                    <td className="p-4 text-center">{d.category}</td>
-                    <td className="p-2">
+                    <td className="p-2 sm:p-4 text-center">{i + 1}</td>
+                    <td className="p-2 sm:p-4 text-left max-w-37.5 overflow-hidden text-ellipsis whitespace-nowrap">{d.title}</td>
+                    <td className="p-2 sm:p-4 text-center">${d.price}</td>
+                    <td className="p-2 sm:p-4 text-center">${d.taxes}</td>
+                    <td className="p-2 sm:p-4 text-center">${d.ads}</td>
+                    <td className="p-2 sm:p-4 text-center">${d.discount}</td>
+                    <td className="p-2 sm:p-4 text-center font-extrabold" style={{ color: '#5ba3bf' }}>${d.total}</td>
+                    <td className="p-2 sm:p-4 text-center">{d.category}</td>
+                    <td className="p-1 sm:p-2">
                       <button
                         onClick={() => onEdit(i)}
-                        className="bi-btn btn-sh relative overflow-hidden inline-flex items-center justify-center gap-1.25 h-10 px-4 rounded-2xl text-sm font-bold text-white border-none cursor-pointer bg-be-grad shadow-be transition-all duration-250 hover:bg-be-gradh hover:shadow-beh hover:-translate-y-0.5 hover:scale-104 active:scale-92 whitespace-nowrap"
+                        className="bi-btn btn-sh relative overflow-hidden inline-flex items-center justify-center gap-1.25 h-8 sm:h-10 px-2 sm:px-4 rounded-2xl text-xs sm:text-sm font-bold text-white border-none cursor-pointer bg-be-grad shadow-be transition-all duration-250 hover:bg-be-gradh hover:shadow-beh hover:-translate-y-0.5 hover:scale-104 active:scale-92 whitespace-nowrap"
                       >
-                        <img src={`${base}edit.png`} style={IMG} alt="edit" /> Edit
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Edit
                       </button>
                     </td>
-                    <td className="p-2">
+                    <td className="p-1 sm:p-2">
                       <button
                         onClick={() => onDelete(i)}
-                        className="bi-btn btn-sh relative overflow-hidden inline-flex items-center justify-center gap-1.25 h-10 px-4 rounded-2xl text-sm font-bold text-white border-none cursor-pointer bg-bd-grad shadow-bd transition-all duration-250 hover:bg-bd-gradh hover:shadow-bdh hover:-translate-y-0.5 hover:scale-104 active:scale-92 whitespace-nowrap"
+                        className="bi-btn btn-sh relative overflow-hidden inline-flex items-center justify-center gap-1.25 h-8 sm:h-10 px-2 sm:px-4 rounded-2xl text-xs sm:text-sm font-bold text-white border-none cursor-pointer bg-bd-grad shadow-bd transition-all duration-250 hover:bg-bd-gradh hover:shadow-bdh hover:-translate-y-0.5 hover:scale-104 active:scale-92 whitespace-nowrap"
                       >
-                        <img src={`${base}del.png`} style={IMG} alt="del" /> Del
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg> Del
                       </button>
                     </td>
                   </tr>

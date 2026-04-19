@@ -5,8 +5,29 @@ import SearchCard from './components/SearchCard'
 import ProductTable from './components/ProductTable'
 
 const LS_KEY = 'product'
-const load = () => { try { return JSON.parse(localStorage.getItem(LS_KEY)) || [] } catch { return [] } }
 const save = d => localStorage.setItem(LS_KEY, JSON.stringify(d))
+
+const SEED = [
+  { title:'wireless headphones',  price:'120', taxes:'17', ads:'6',  discount:'10', total:'133', count:'1', category:'electronics' },
+  { title:'running shoes',        price:'85',  taxes:'12', ads:'4',  discount:'5',  total:'96',  count:'1', category:'sports'      },
+  { title:'coffee maker',         price:'60',  taxes:'8',  ads:'3',  discount:'0',  total:'71',  count:'1', category:'kitchen'     },
+  { title:'office chair',         price:'200', taxes:'28', ads:'10', discount:'20', total:'218', count:'1', category:'furniture'   },
+  { title:'mechanical keyboard',  price:'95',  taxes:'13', ads:'5',  discount:'8',  total:'105', count:'1', category:'electronics' },
+  { title:'yoga mat',             price:'30',  taxes:'4',  ads:'2',  discount:'0',  total:'36',  count:'1', category:'sports'      },
+  { title:'desk lamp',            price:'45',  taxes:'6',  ads:'2',  discount:'3',  total:'50',  count:'1', category:'furniture'   },
+  { title:'protein powder',       price:'55',  taxes:'8',  ads:'3',  discount:'5',  total:'61',  count:'1', category:'health'      },
+  { title:'backpack',             price:'70',  taxes:'10', ads:'4',  discount:'7',  total:'77',  count:'1', category:'accessories' },
+  { title:'smart watch',          price:'150', taxes:'21', ads:'8',  discount:'15', total:'164', count:'1', category:'electronics' },
+]
+
+const load = () => {
+  try {
+    const stored = JSON.parse(localStorage.getItem(LS_KEY))
+    if (stored && stored.length > 0) return stored
+    save(SEED)
+    return SEED
+  } catch { return SEED }
+}
 
 export default function App() {
   const [dark, setDark]           = useState(true)
@@ -64,8 +85,8 @@ export default function App() {
     : data
 
   return (
-    <div style={{ background: bg, color, minHeight: '100vh', fontFamily: "'Nunito', system-ui, sans-serif", transition: 'background .45s, color .45s' }}>
-      <div className="relative z-10 max-w-265 mx-auto px-5 pb-16">
+    <div style={{ background: bg, color, minHeight: '100vh', fontFamily: "'IosevkaCharon', system-ui, sans-serif", transition: 'background .45s, color .45s' }}>
+      <main className="relative z-10 max-w-265 mx-auto px-3 sm:px-5 pb-16">
         <TopBar dark={dark} toggleMode={toggleMode} />
         <FormCard
           dark={dark} cardBg={cardBg}
@@ -84,7 +105,7 @@ export default function App() {
           data={filtered} allCount={data.length}
           onEdit={startEdit} onDelete={deleteProduct} onDeleteAll={deleteAll}
         />
-      </div>
+      </main>
     </div>
   )
 }
